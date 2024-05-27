@@ -9,7 +9,7 @@ div.hidden {
 div#content {
   padding: 1em;
 }
-div.tree-of-contents {
+div.treeview {
   position: fixed;
   left: 0;
   top: 0;
@@ -22,7 +22,7 @@ div.tree-of-contents {
 }
 
 /* This fragment is responsible for displaying the tree itself */
-div.tree-of-contents {
+div.treeview {
   ul {
     padding: 0 0 0 1em;
   }
@@ -66,15 +66,15 @@ div.tree-of-contents {
     background-color: transparent;
   }
   ul li:not(:has(details))::before {
-    background-image: url("images/doc.png");
+    background-image: url("images/leaf.png");
     content: url("images/empty.png");
   }
   details[open] > summary::before {
-    background-image: url("images/folder-doc.png");
+    background-image: url("images/folder-opened.png");
     content: url("images/minus.png");
   }
   details:not([open]) > summary::before {
-    background-image: url("images/folder.png");
+    background-image: url("images/folder-closed.png");
     content: url("images/plus.png");
   }
 /* Custom node icons */
