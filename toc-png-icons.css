@@ -1,3 +1,4 @@
+/* This fragment is responsible for displaying the document structure; it depends on the specific document */
 body {
   margin: 0 0 0 20%;
   padding: 0;
@@ -19,6 +20,8 @@ div.tree-of-contents {
   vertical-align: top;
   border-right: thin solid black;
 }
+
+/* This fragment is responsible for displaying the tree itself */
 div.tree-of-contents {
   ul {
     padding: 0 0 0 1em;
@@ -74,7 +77,12 @@ div.tree-of-contents {
     background-image: url("images/folder.png");
     content: url("images/plus.png");
   }
+/* Custom node icons */
   ul li.icon-warning::before {
+    background-image: url("images/warning.png");
+  }
+  ul li.icon-warning details[open] > summary::before,
+  ul li.icon-warning details:not([open]) > summary::before {
     background-image: url("images/warning.png");
   }
 }

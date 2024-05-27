@@ -60,7 +60,7 @@ Without using CSS, the result is already usable, but it doesn’t look very pret
 
 ![TreeView without the CSS](images/no-css.png)
 
-We would like to add different icons for “leaf”, opened and closed “folder”. We also need a plus or minus icon to be displayed to the left of the closed  or opened folder respectively. And this is where the difficulties begin.
+We would like to add different icons for “leaf”, opened and closed “folder”. We also need a plus or minus icon to be displayed to the left of the closed or opened folder respectively. And this is where the difficulties begin.
 
 Both the `<li>` list item and the `<details>` element have a default marker — a circle and a triangle, respectively (see the picture above). They allow this marker to be replaced with an image, but neatly aligning those types of elements to the left seems to be quite difficult and it is not a fact that it will look the same in different browsers. After struggling for a while, I decided to get rid of all the markers and replace them with a `::before` pseudo-element, which at least can be made to look the same.
 
@@ -92,18 +92,29 @@ There are two HTML documents: `index-svg.html` and `index-png.html`. They have t
 
 ### Assigning Icons to Individual Nodes
 
-Sometimes we need to change one or more of the tree node icons (“opened / closed folder” or “leaf”). To do this, simply add a class in the CSS file like this:
+Sometimes we need to change one or more of the tree node icons (opened / closed “folder” or “leaf”). To do this, simply append a class in the CSS file like this — a “leaf” icon:
 
 ```css
-ul li.icon-warning::before {
+li.icon-warning::before {
   background-image: url("images/warning.png");
 }
 ```
 
-And in the HTML assign the class to the `<li>` item or the `<details>` tag:
+or this — opened and closed “folder” icons (note the “>” sign between the `li` and `details`, which ensures that higher-level folders don’t change their icons):
+
+```css
+li.icon-custom-folder > details[open] > summary::before {
+  background-image: url("images/custom-folder-doc.png");
+}
+li.icon-custom-folder > details:not([open]) > summary::before {
+  background-image: url("images/custom-folder.png");
+}
+```
+
+And in the HTML assign the class to the `<li>` item:
 
 ```html
-<li class="icon-warning"><a href=#introduction">Warning</a></li>
+<li class="icon-warning">...</li>
 ```
 
 ### Final Remarks
