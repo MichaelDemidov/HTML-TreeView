@@ -1,0 +1,80 @@
+body {
+  margin: 0 0 0 20%;
+  padding: 0;
+}
+div.hidden {
+  display: none;
+}
+div#content {
+  padding: 1em;
+}
+div.tree-of-contents {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  width: 20%;
+  height: 100%;
+  vertical-align: top;
+  border-right: thin solid black;
+}
+div.tree-of-contents {
+  ul {
+    padding: 0 0 0 1em;
+  }
+  ul li details {
+    padding: 0;
+    margin: 0;
+  }
+  ul li,
+  ul li details summary {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    padding: 0.5ex;
+  }
+  ul li a {
+    text-decoration: none;
+    padding: 2px;
+  }
+  ul li a.visited {
+    color: purple;
+  }
+  ul li a.current {
+    background-color: blue;
+    color: white;
+  }
+  ul li a:hover {
+    padding: 1px;
+    border: 1px dotted black;
+  }
+  ul li:not(:has(details))::before,
+  details > summary::before {
+    content: "";
+    text-align: left;
+    vertical-align: top;
+    padding: 0 24px 0 0;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: top right 4px;
+    background-color: transparent;
+  }
+  ul li:not(:has(details))::before {
+    background-image: url("images/doc.svg");
+    content: "\2003";
+  }
+  details[open] > summary::before {
+    background-image: url("images/folder-doc.svg");
+    content: url("images/minus.svg");
+  }
+  details:not([open]) > summary::before {
+    background-image: url("images/folder.svg");
+    content: url("images/plus.svg");
+  }
+  ul li.icon-warning::before {
+    background-image: url("images/warning.svg");
+  }
+}
