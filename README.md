@@ -22,6 +22,10 @@ HTML 5 and CSS 3.0.
 
 I used new tags and CSS properties that appeared only in these versions, so this definitely won’t work on very old browsers. For those browsers you will have to use some JavaScript instead.
 
+> [!IMPORTANT]
+> Both the [CSS nesting](https://caniuse.com/css-nesting) and the [`:has` CSS pseudo-class](https://caniuse.com/css-has) are relatively new to the most browsers, and they didn’t support these specifications until 2022 — 2024. So, if you need to support older browsers, ditch CSS nesting and use CSS classes instead of the `:has` pseudo-class — it breaks CSS’s independence from HTML but everything has a price.
+
+
 How It Works?
 -------------
 
