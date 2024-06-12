@@ -43,9 +43,6 @@ div.treeview {
     text-decoration: none;
     padding: 2px;
   }
-  ul li a.visited {
-    color: purple;
-  }
   ul li a.current {
     background-color: blue;
     color: white;
